@@ -1,8 +1,11 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:movie_catalogue/data.dart';
 import 'package:movie_catalogue/widgets/leftpane/left_pane_widget.dart';
+import 'package:movie_catalogue/widgets/main_pane.dart';
 import 'package:movie_catalogue/widgets/mainheader/main_header.dart';
+import 'package:movie_catalogue/widgets/subheader/sub_header.dart';
 
 class AppLayout extends StatefulWidget {
   const AppLayout({Key? key}) : super(key: key);
@@ -47,11 +50,11 @@ class _AppLayoutState extends State<AppLayout> {
                   Container(
                     height: 120,
                     color: Colors.indigo.withOpacity(0.60),
-                    child: Row(),
+                    child: const SubHeader(),
                   ),
                   const Expanded(
                     child: Center(
-                      child: Text('Hello!'),
+                      child: MainPane(data: topChart),
                     ),
                   )
                 ],
