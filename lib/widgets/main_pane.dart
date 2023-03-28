@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../data.dart';
 
 class MainPane extends StatelessWidget {
-  final List<Map<String, dynamic>> data;
+  final List<Map<String,dynamic>> data;
 
   const MainPane({Key? key, required this.data}) : super(key: key);
 

@@ -17,6 +17,9 @@ class AppLayout extends StatefulWidget {
 }
 
 class _AppLayoutState extends State<AppLayout> {
+  List<Map<String,dynamic>> data = topChart;
+  int currentPage = 4;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,10 +37,7 @@ class _AppLayoutState extends State<AppLayout> {
             Container(
               width: 300,
               color: const Color(0xFF253089).withOpacity(0.85),
-              child: LeftPane(
-                mainNavAction: () {},
-                selected: 0,
-              ),
+              child: LeftPane(mainNavAction: menuAction, selected: currentPage),
             ),
             Expanded(
               child: Column(
@@ -52,9 +52,9 @@ class _AppLayoutState extends State<AppLayout> {
                     color: Colors.indigo.withOpacity(0.60),
                     child: const SubHeader(),
                   ),
-                  const Expanded(
+                  Expanded(
                     child: Center(
-                      child: MainPane(data: topChart),
+                      child: MainPane(data: data),
                     ),
                   )
                 ],
@@ -64,5 +64,12 @@ class _AppLayoutState extends State<AppLayout> {
         ),
       ),
     );
+  }
+
+  void menuAction(int page, List<Map<String,dynamic>> data){
+    setState(() {
+      currentPage = page;
+      this.data = data;
+    });
   }
 }

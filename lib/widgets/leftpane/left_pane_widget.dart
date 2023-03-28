@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_catalogue/data.dart';
 import 'package:movie_catalogue/widgets/leftpane/main_nav_item.dart';
 import 'package:movie_catalogue/widgets/leftpane/sub_nav_item.dart';
 
@@ -24,10 +25,10 @@ class LeftPane extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(height: 50),
-            MainNavItem('New Releases', Icons.rocket_launch_outlined, false, () {}),
-            MainNavItem('Most Popular', Icons.emoji_events_outlined, false, () {}),
-            MainNavItem('Recommended', Icons.verified_outlined, false, () {}),
-            MainNavItem('Top Chart', Icons.diamond_outlined, true, () {}),
+            MainNavItem('New Releases', Icons.rocket_launch_outlined, selected == 1, () => mainNavAction(1, newReleases)),
+            MainNavItem('Most Popular', Icons.emoji_events_outlined, selected == 2, () => mainNavAction(2, mostPopular)),
+            MainNavItem('Recommended', Icons.verified_outlined, selected == 3, () => mainNavAction(3, recommended)),
+            MainNavItem('Top Chart', Icons.diamond_outlined, selected == 4, () => mainNavAction(4, topChart)),
           ],
         )),
         Expanded(child: Column(
